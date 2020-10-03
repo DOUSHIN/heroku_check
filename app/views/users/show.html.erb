@@ -1,0 +1,5 @@
+<h1><%= @user.name %>のページ</h1>
+<p>メールアドレス:<%= @user.email %></p>
+<% if logged_in? %>
+  <%= link_to "Post", new_picture_path %>
+<% end %>

@@ -1,0 +1,7 @@
+<p>
+  <strong>Content:</strong>
+  <%= @picture.content %>
+  <strong>Image:</strong>
+  <%= image_tag(@picture.image.url) %>
+</p>
+<%= link_to 'All Posts', pictures_path %>
