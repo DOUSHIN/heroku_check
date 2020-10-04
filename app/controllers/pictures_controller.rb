@@ -41,6 +41,12 @@ class PicturesController < ApplicationController
 
   def edit
     @picture = Picture.find(params[:id])
+    if @picture.user_id == current_user.id
+      render :edit
+    else
+      flash[:notice] = '別のユーザーの投稿です'
+      redirect_to pictures_path
+    end
   end
 
   def update
@@ -57,9 +63,14 @@ class PicturesController < ApplicationController
 
   def destroy
     @picture = Picture.find(params[:id])
-    @picture.destroy
-    flash[:destroy] = '削除完了'
-    redirect_to pictures_path
+    if @picture.user_id == current_user.id
+      @picture.destroy
+      flash[:destroy] = '削除完了'
+      redirect_to pictures_path
+    else
+      flash[:notice] = '別のユーザーの投稿です'
+      redirect_to pictures_path
+    end
   end
 
   private
