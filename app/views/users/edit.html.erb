@@ -1,0 +1,15 @@
+<%= form_with(model: @user, local: true) do |format| %>
+  <%= format.label :name %>
+  <%= format.text_field :name %>
+  <%= format.label :email %>
+  <%= format.text_field :email %>
+  <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+  <%= format.label :image %>
+  <%= format.file_field :image %>
+  <%= format.hidden_field :image_cache %>
+  <%= format.label :password %>
+  <%= format.password_field :password %>
+  <%= format.label :password_confirmation %>
+  <%= format.password_field :password_confirmation %>
+  <%= format.submit "変更" %>
+<% end %>
