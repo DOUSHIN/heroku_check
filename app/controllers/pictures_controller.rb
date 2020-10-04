@@ -6,6 +6,7 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = Picture.new(picture_params)
+    @picture.user_id = current_user.id
     if @picture.image && @picture.image.url
       render :confirm
     else
@@ -17,6 +18,7 @@ class PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(picture_params)
+    @picture.user_id = current_user.id
     if params[:back]
       render :new
     else
