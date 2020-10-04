@@ -10,4 +10,8 @@ class FavoritesController < ApplicationController
     redirect_to pictures_path, notice: "#{favorite.picture.user.name}さんの投稿をお気に入り解除しました"
   end
 
+  def index
+    @favorites = current_user.favorites
+  end
+
 end

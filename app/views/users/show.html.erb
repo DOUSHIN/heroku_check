@@ -4,5 +4,6 @@
 
 <% if logged_in? %>
   <%= link_to "Account", edit_user_path(@user.id) %>
+  <%= link_to "likes", favorites_path %>
   <%= link_to "Post", new_picture_path %>
 <% end %>
