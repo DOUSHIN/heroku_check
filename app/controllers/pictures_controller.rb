@@ -23,6 +23,7 @@ class PicturesController < ApplicationController
       render :new
     else
       if @picture.save
+        PictureMailer.picture_mail(@picture).deliver
         flash[:done] = '投稿完了'
         redirect_to @picture
       else
