@@ -7,6 +7,6 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: "/letter_opener"
   root 'users#new'
 end
