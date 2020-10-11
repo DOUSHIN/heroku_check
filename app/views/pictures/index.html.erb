@@ -1,30 +1,17 @@
 <h1>Posts</h1>
-<table class="container-fluid">
-
-  <thead>
-    <tr>
-      <th>投稿一覧</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<%= link_to 'New Post', new_picture_path %>
+<table class="main_table">
     <% @pictures.each do |picture| %>
-      <tr class="row">
+      <tr>
         <td><%= picture.user.name %></td>
         <td><%= picture.content %></td>
         <td><%= image_tag picture.image.url %></td>
         <td><%= link_to 'Show', picture %></td>
         <% if picture.user_id == current_user.id %>
-          <td><%= link_to 'Edit', edit_picture_path(picture.id) %></td>
-          <td><%= link_to 'Delete', picture_path(picture.id), method: :delete, data: {confirm: 'Are You Sure ?'} %></td>
+          <td><%= link_to 'Edit', edit_picture_path(picture.id) %><br><%= link_to 'Delete', picture_path(picture.id), method: :delete, data: {confirm: 'Are You Sure ?'} %></td>
         <% end %>
       </tr>
     <% end %>
-  </tbody>
-
 </table>
 
 <br>
-
-<%= link_to 'New Post', new_picture_path %>

@@ -1,6 +1,6 @@
 <%= form_with(model: @picture, local: true, url: pictures_path) do |format| %>
   <p><%= @picture.content %></p>
-  <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+  <%= image_tag(@picture.image.url, class:"sized") if @picture.image && @picture.image.url %>
   <%= format.hidden_field :content %>
   <%= format.hidden_field :image_cache %>
   <%= format.submit "Post" %>

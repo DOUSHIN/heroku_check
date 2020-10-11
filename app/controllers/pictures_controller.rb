@@ -10,7 +10,7 @@ class PicturesController < ApplicationController
     if @picture.image && @picture.image.url
       render :confirm
     else
-      flash[:check] = '画像がありません'
+      flash.now[:check] = '画像がありません'
       render :new
     end
 

@@ -1,9 +1,11 @@
+<div class="field">
 <%= form_with(model: @picture, local: true, url: choose_new_or_edit) do |format| %>
   <%= format.label :content %>
   <%= format.text_field :content %>
   <%= format.label :image %>
-  <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+  <%= image_tag(@picture.image.url, class:"sized") if @picture.image && @picture.image.url %>
   <%= format.file_field :image %>
   <%= format.hidden_field :image_cache %>
   <%= format.submit "Post" %>
 <% end %>
+</div>
